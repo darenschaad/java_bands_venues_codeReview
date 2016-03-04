@@ -20,13 +20,13 @@ public class BandTest {
     assertTrue(firstBand.equals(secondBand));
   }
 
-  // @Test
-  // public void save_savesIntoDatabase_true() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   assertTrue(Category.all().get(0).equals(myCategory));
-  // }
-  //
+  @Test
+  public void save_savesIntoDatabase_true() {
+    Band myBand = new Band("House");
+    myBand.save();
+    assertTrue(Band.all().get(0).equals(myBand));
+  }
+
   // @Test
   // public void find_findCategoryInDatabase_true() {
   //   Category myCategory = new Category("Household chores");

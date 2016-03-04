@@ -41,16 +41,16 @@ public class Band {
     }
   }
 
-  // public void save() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "INSERT INTO bands(band_name) VALUES (:name)";
-  //     this.id = (int) con.createQuery(sql, true)
-  //       .addParameter("name", this.band_name)
-  //       .executeUpdate()
-  //       .getKey();
-  //   }
-  // }
-  //
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO bands(band_name) VALUES (:name)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("name", this.band_name)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+  
   // public void deleteBand() {
   //   String sql = "DELETE FROM bands WHERE id=:id";
   //   try(Connection con = DB.sql2o.open()) {
