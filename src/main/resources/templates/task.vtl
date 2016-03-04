@@ -1,0 +1,28 @@
+task.vtl
+
+<h2>$task.getDescription()</h2>
+
+
+#foreach($category in $categories)
+<h4>
+  <form class="form-inline" action="/tasks/$task.getId()/remove/$category.getId()" method="post">
+    <label for=""><a href="/$category.getId()">$category.getName()</a></label>
+    <button type="submit" id="$category.getId()" name="$category.getId()" class="btn btn-warning remove">Remove Category</button>
+    <a href="/$category.getId()/delete" id = "delete$category.getId()" class="btn btn-danger delete">Delete Category</a></h4>
+  </form>
+</h4>
+#end
+
+
+<form action="/tasks/$task.getId()/categoryadd" method="post">
+  <label>Assign a Category to $task.getDescription()</label>
+  <select name='categoryassign' type='text'>
+  #foreach($category in $allcategories)
+    <option value="$category.getId()" id ="$category.getId()">$category.getName()</option>
+  #end
+  </select>
+  <button type="submit" name="taskButton" class="btn btn-info">Submit</button>
+</form>
+
+<a href="/">Go Back Home</a>
+<a href="/tasks">View all Tasks</a>
