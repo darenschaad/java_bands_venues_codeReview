@@ -76,7 +76,7 @@ public class VenueTest {
   //   myVenue.delete();
   //   assertEquals(myCategory.getVenues().size(), 0);
   // }
-  //
+
   // @Test
   // public void removeCategory_deletesAllRelationsBetweenVenueAndCategory() {
   //   Category myCategory = new Category("Household chores");
@@ -86,24 +86,5 @@ public class VenueTest {
   //   myVenue.addCategory(myCategory);
   //   myVenue.removeCategory(myCategory.getId());
   //   assertEquals(myVenue.getCategories().size(), 0);
-  // }
-  //
-  // @Test
-  // public void completeVenue_marksAVenueComplete() {
-  //   Venue myVenue = new Venue("Mow the lawn");
-  //   myVenue.save();
-  //   myVenue.completeVenue();
-  //   Venue savedVenue = Venue.find(myVenue.getId());
-  //   assertEquals(savedVenue.getCompletionStatus(), true);
-  // }
-  //
-  // @Test
-  // public void deCompleteVenue_marksAVenueIncomplete() {
-  //   Venue myVenue = new Venue("Mow the lawn");
-  //   myVenue.save();
-  //   myVenue.completeVenue();
-  //   myVenue.deCompleteVenue();
-  //   Venue savedVenue = Venue.find(myVenue.getId());
-  //   assertEquals(savedVenue.getCompletionStatus(), false);
   // }
 }

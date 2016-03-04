@@ -1,18 +1,29 @@
 index.vtl
-<h1>To-Do List</h1>
-<h3>Categories:</h3>
-#foreach($category in $categories)
-<h4><a href="/$category.getId()">$category.getName()</a>
+<div class="row">
+  <div class="col col-sm-6">
+    <h3>Bands:</h3>
+    #foreach($band in $bands)
+    <h4><a href="/$band.getId()">$band.getName()</a>
+    <a href="/$band.getId()/delete" id = "delete$band.getId()" class="btn btn-danger delete btn-xs">Delete $band.getName()</a></h4>
+    #end
+  </div>
+  <div class="col col-sm-6">
+    <h3>Venues:</h3>
+    #foreach($venue in $venues)
+    <h4><a href="/$venue.getId()">$venue.getName()</a>
+    <a href="/$venue.getId()/delete" id = "delete$venue.getId()" class="btn btn-danger delete btn-xs">Delete $venue.getName()</a></h4>
+    #end
+  </div>
 
-<a href="/$category.getId()/delete" id = "delete$category.getId()" class="btn btn-danger delete">Delete Category</a></h4>
-#end
+</div>
 
 
 
+<!--
 <form action="/" method="post">
   <label for="">Add a Category</label>
   <input type="text" name="categoryName" id="categoryName" required autofocus="autofocus">
   <button type="submit" class="btn btn-primary" id="categoryButton" name="button">Submit</button>
 </form>
 
-<a href="/tasks">View all Tasks</a>
+<a href="/tasks">View all Tasks</a> -->

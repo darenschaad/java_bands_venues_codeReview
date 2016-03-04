@@ -31,14 +31,14 @@ public class AppTest extends FluentTest {
   }
 
 
-  // @Test
-  // public void categoryIsDisplayedTest() {
-  //   Category myCategory = new Category("Shopping");
-  //   myCategory.save();
-  //   goTo("http://localhost:4567");
-  //   assertThat(pageSource()).contains("Shopping");
-  // }
-  //
+  @Test
+  public void bandIsDisplayedTest() {
+    Band myBand = new Band("Tanlines");
+    myBand.save();
+    goTo("http://localhost:4567");
+    assertThat(pageSource()).contains("Tanlines");
+  }
+
   // @Test
   // public void allTasksDisplayDescriptionOnCategoryPage() {
   //   Category myCategory = new Category("Household chores");
