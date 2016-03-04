@@ -56,19 +56,19 @@ public class BandTest {
     assertEquals(savedVenues.size(), 1);
   }
 
+  @Test
+  public void deleteBand_deletesAllVenueAssoications() {
+    Band myBand = new Band("House");
+    myBand.save();
+    Venue myVenue = new Venue("Rose Garden");
+    myVenue.save();
+    myBand.addVenue(myVenue);
+    myBand.deleteBand();
+    assertEquals(myBand.getVenues().size(), 0);
+  }
+
   // @Test
-  // public void deleteCategory_deletesAllTasksAndListsAssoicationes() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   myCategory.addTask(myTask);
-  //   myCategory.deleteCategory();
-  //   assertEquals(myTask.getCategories().size(), 0);
-  // }
-  //
-  // @Test
-  // public void removeTask_deletesAllRelationsBetweenTaskAndCategory() {
+  // public void removeTask_deletesAllRelationsBetweenTaskAndBand() {
   //   Category myCategory = new Category("Household chores");
   //   myCategory.save();
   //   Task myTask = new Task("Mow the lawn");

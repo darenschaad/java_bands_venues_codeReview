@@ -36,14 +36,14 @@ public class VenueTest {
     assertEquals(myVenue.getId(), savedVenue.getId());
   }
 
-  // @Test
-  // public void find_findsVenueInDatabase_true() {
-  //   Venue myVenue = new Venue("Mow the lawn");
-  //   myVenue.save();
-  //   Venue savedVenue = Venue.find(myVenue.getId());
-  //   assertTrue(myVenue.equals(savedVenue));
-  // }
-  //
+  @Test
+  public void find_findsVenueInDatabase_true() {
+    Venue myVenue = new Venue("Mow the lawn");
+    myVenue.save();
+    Venue savedVenue = Venue.find(myVenue.getId());
+    assertTrue(myVenue.equals(savedVenue));
+  }
+
   // @Test
   // public void addCategory_addsCategoryToVenue() {
   //   Category myCategory = new Category("Household chores");
@@ -54,7 +54,7 @@ public class VenueTest {
   //   Category savedCategory = myVenue.getCategories().get(0);
   //   assertTrue(myCategory.equals(savedCategory));
   // }
-  //
+
   // @Test
   // public void getCategories_returnsAllCategories_ArrayList() {
   //   Category myCategory = new Category("Household chores");
