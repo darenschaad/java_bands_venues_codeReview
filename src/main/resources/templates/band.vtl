@@ -1,9 +1,9 @@
-task.vtl
+band.vtl
 
-<h2>$task.getDescription()</h2>
+<h2>$band.getName()</h2>
 
 
-#foreach($category in $categories)
+#foreach($venue in $venues)
 <h4>
   <form class="form-inline" action="/tasks/$task.getId()/remove/$category.getId()" method="post">
     <label for=""><a href="/$category.getId()">$category.getName()</a></label>

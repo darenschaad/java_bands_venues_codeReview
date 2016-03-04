@@ -39,38 +39,38 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Tanlines");
   }
 
-  // @Test
-  // public void allTasksDisplayDescriptionOnCategoryPage() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Task firstTask = new Task("Mow the lawn");
-  //   firstTask.save();
-  //   myCategory.addTask(firstTask);
-  //   Task secondTask = new Task("Do the dishes");
-  //   secondTask.save();
-  //   myCategory.addTask(secondTask);
-  //   String categoryPath = String.format("http://localhost:4567/%d", myCategory.getId());
-  //   goTo(categoryPath);
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  //   assertThat(pageSource()).contains("Do the dishes");
-  // }
-  //
-  // @Test
-  // public void categoryIsDeleted() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   int id = myCategory.getId();
-  //   myCategory.deleteCategory();
-  //   goTo("http://localhost:4567");
-  //   assertThat(pageSource()).doesNotContain("Household chores");
-  // }
-  //
+  @Test
+  public void allVenuesDisplayOnBandPage() {
+    Band myBand = new Band("Audioslave");
+    myBand.save();
+    Venue firstVenue = new Venue("Rose Garden");
+    firstVenue.save();
+    myBand.addVenue(firstVenue);
+    Venue secondVenue = new Venue("The Meadows");
+    secondVenue.save();
+    myBand.addVenue(secondVenue);
+    String categoryPath = String.format("http://localhost:4567/band/%d", myBand.getId());
+    goTo(categoryPath);
+    assertThat(pageSource()).contains("Rose Garden");
+    assertThat(pageSource()).contains("The Meadows");
+  }
+
+  @Test
+  public void categoryIsDeleted() {
+    Band myCategory = new Category("Household chores");
+    myCategory.save();
+    int id = myCategory.getId();
+    myCategory.deleteCategory();
+    goTo("http://localhost:4567");
+    assertThat(pageSource()).doesNotContain("Household chores");
+  }
+  
   // @Test
   // public void taskIsDeleted() {
   //   Category myCategory = new Category("Household chores");
   //   myCategory.save();
   //   int categoryId = myCategory.getId();
-  //   Task myTask = new Task("sweep");
+  //   Venue myTask = new Task("sweep");
   //   myTask.save();
   //   int id = myTask.getId();
   //   myTask.delete();
