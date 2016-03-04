@@ -8,50 +8,50 @@ public class VenueTest {
   public DatabaseRule database = new DatabaseRule();
 
 
-  // @Test
-  // public void all_emptyAtFirst() {
-  //   assertEquals(Task.all().size(), 0);
-  // }
-  //
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Venue.all().size(), 0);
+  }
+
   // @Test
   // public void equals_returnsTrueIfDescriptionsAretheSame() {
-  //   Task firstTask = new Task("Mow the lawn");
-  //   Task secondTask = new Task("Mow the lawn");
-  //   assertTrue(firstTask.equals(secondTask));
+  //   Venue firstVenue = new Venue("Mow the lawn");
+  //   Venue secondVenue = new Venue("Mow the lawn");
+  //   assertTrue(firstVenue.equals(secondVenue));
   // }
   //
   // @Test
   // public void save_savesObjectIntoDatabase() {
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   Task savedTask = Task.all().get(0);
-  //   assertTrue(savedTask.equals(myTask));
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   Venue savedVenue = Venue.all().get(0);
+  //   assertTrue(savedVenue.equals(myVenue));
   // }
   //
   // @Test
   // public void save_assignsIdToObject() {
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   Task savedTask = Task.all().get(0);
-  //   assertEquals(myTask.getId(), savedTask.getId());
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   Venue savedVenue = Venue.all().get(0);
+  //   assertEquals(myVenue.getId(), savedVenue.getId());
   // }
   //
   // @Test
-  // public void find_findsTaskInDatabase_true() {
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   Task savedTask = Task.find(myTask.getId());
-  //   assertTrue(myTask.equals(savedTask));
+  // public void find_findsVenueInDatabase_true() {
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   Venue savedVenue = Venue.find(myVenue.getId());
+  //   assertTrue(myVenue.equals(savedVenue));
   // }
   //
   // @Test
-  // public void addCategory_addsCategoryToTask() {
+  // public void addCategory_addsCategoryToVenue() {
   //   Category myCategory = new Category("Household chores");
   //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   myTask.addCategory(myCategory);
-  //   Category savedCategory = myTask.getCategories().get(0);
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   myVenue.addCategory(myCategory);
+  //   Category savedCategory = myVenue.getCategories().get(0);
   //   assertTrue(myCategory.equals(savedCategory));
   // }
   //
@@ -59,51 +59,51 @@ public class VenueTest {
   // public void getCategories_returnsAllCategories_ArrayList() {
   //   Category myCategory = new Category("Household chores");
   //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   myTask.addCategory(myCategory);
-  //   List savedCategories = myTask.getCategories();
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   myVenue.addCategory(myCategory);
+  //   List savedCategories = myVenue.getCategories();
   //   assertEquals(savedCategories.size(), 1);
   // }
   //
   // @Test
-  // public void delete_deletesAllTasksAndListsAssoicationes() {
+  // public void delete_deletesAllVenuesAndListsAssoicationes() {
   //   Category myCategory = new Category("Household chores");
   //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   myTask.addCategory(myCategory);
-  //   myTask.delete();
-  //   assertEquals(myCategory.getTasks().size(), 0);
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   myVenue.addCategory(myCategory);
+  //   myVenue.delete();
+  //   assertEquals(myCategory.getVenues().size(), 0);
   // }
   //
   // @Test
-  // public void removeCategory_deletesAllRelationsBetweenTaskAndCategory() {
+  // public void removeCategory_deletesAllRelationsBetweenVenueAndCategory() {
   //   Category myCategory = new Category("Household chores");
   //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   myTask.addCategory(myCategory);
-  //   myTask.removeCategory(myCategory.getId());
-  //   assertEquals(myTask.getCategories().size(), 0);
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   myVenue.addCategory(myCategory);
+  //   myVenue.removeCategory(myCategory.getId());
+  //   assertEquals(myVenue.getCategories().size(), 0);
   // }
   //
   // @Test
-  // public void completeTask_marksATaskComplete() {
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   myTask.completeTask();
-  //   Task savedTask = Task.find(myTask.getId());
-  //   assertEquals(savedTask.getCompletionStatus(), true);
+  // public void completeVenue_marksAVenueComplete() {
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   myVenue.completeVenue();
+  //   Venue savedVenue = Venue.find(myVenue.getId());
+  //   assertEquals(savedVenue.getCompletionStatus(), true);
   // }
   //
   // @Test
-  // public void deCompleteTask_marksATaskIncomplete() {
-  //   Task myTask = new Task("Mow the lawn");
-  //   myTask.save();
-  //   myTask.completeTask();
-  //   myTask.deCompleteTask();
-  //   Task savedTask = Task.find(myTask.getId());
-  //   assertEquals(savedTask.getCompletionStatus(), false);
+  // public void deCompleteVenue_marksAVenueIncomplete() {
+  //   Venue myVenue = new Venue("Mow the lawn");
+  //   myVenue.save();
+  //   myVenue.completeVenue();
+  //   myVenue.deCompleteVenue();
+  //   Venue savedVenue = Venue.find(myVenue.getId());
+  //   assertEquals(savedVenue.getCompletionStatus(), false);
   // }
 }
