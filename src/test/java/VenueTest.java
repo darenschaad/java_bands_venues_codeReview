@@ -55,20 +55,20 @@ public class VenueTest {
     assertTrue(myBand.equals(savedBand));
   }
 
-  // @Test
-  // public void getCategories_returnsAllCategories_ArrayList() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Venue myVenue = new Venue("Mow the lawn");
-  //   myVenue.save();
-  //   myVenue.addCategory(myCategory);
-  //   List savedCategories = myVenue.getCategories();
-  //   assertEquals(savedCategories.size(), 1);
-  // }
-  //
+  @Test
+  public void getBands_returnsAllBands_ArrayList() {
+    Band myBand = new Band("Household chores");
+    myBand.save();
+    Venue myVenue = new Venue("Mow the lawn");
+    myVenue.save();
+    myVenue.addBand(myBand);
+    List savedBands = myVenue.getBands();
+    assertEquals(savedBands.size(), 1);
+  }
+
   // @Test
   // public void delete_deletesAllVenuesAndListsAssoicationes() {
-  //   Category myCategory = new Category("Household chores");
+  //   Band myCategory = new Category("Household chores");
   //   myCategory.save();
   //   Venue myVenue = new Venue("Mow the lawn");
   //   myVenue.save();
