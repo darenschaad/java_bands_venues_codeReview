@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class CategoryTest {
+public class BandTest {
 
   @Rule
   public DatabaseRule database = new DatabaseRule();
