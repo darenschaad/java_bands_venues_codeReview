@@ -78,18 +78,18 @@ public class Venue {
       .executeUpdate();
     }
   }
-  public List<Venue> getAllVenues() {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM venues ORDER BY venue_name";
-      return con.createQuery(sql)
-        .addParameter("id", id)
-        .executeAndFetch(Venue.class);
-    }
-  }
+  // public List<Venue> getAllVenues() {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "SELECT * FROM venues ORDER BY venue_name";
+  //     return con.createQuery(sql)
+  //       .addParameter("id", id)
+  //       .executeAndFetch(Venue.class);
+  //   }
+  // }
 
   public void addBand(Band band) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO categories_venues (band_id, venue_id) VALUES (:band_id, :venue_id)";
+      String sql = "INSERT INTO bands_venues (band_id, venue_id) VALUES (:band_id, :venue_id)";
       con.createQuery(sql)
         .addParameter("band_id", band.getId())
         .addParameter("venue_id", this.getId())
