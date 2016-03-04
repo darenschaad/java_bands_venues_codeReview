@@ -3,26 +3,25 @@ band.vtl
 <h2>$band.getName()</h2>
 
 
-#foreach($venue in $venues)
-<h4>
-  <form class="form-inline" action="/tasks/$task.getId()/remove/$category.getId()" method="post">
-    <label for=""><a href="/$category.getId()">$category.getName()</a></label>
-    <button type="submit" id="$category.getId()" name="$category.getId()" class="btn btn-warning remove">Remove Category</button>
-    <a href="/$category.getId()/delete" id = "delete$category.getId()" class="btn btn-danger delete">Delete Category</a></h4>
-  </form>
-</h4>
-#end
-
-
-<form action="/tasks/$task.getId()/categoryadd" method="post">
-  <label>Assign a Category to $task.getDescription()</label>
-  <select name='categoryassign' type='text'>
-  #foreach($category in $allcategories)
-    <option value="$category.getId()" id ="$category.getId()">$category.getName()</option>
-  #end
-  </select>
-  <button type="submit" name="taskButton" class="btn btn-info">Submit</button>
-</form>
-
-<a href="/">Go Back Home</a>
-<a href="/tasks">View all Tasks</a>
+<div class="row">
+  <div class="col col-sm-8">
+    <h4>
+      <form class="form-inline" action="/band/$band.getId()" method="post">
+        <label for="">Add a venue for $band.getName()</label>
+        <select id="venueId" name="venueId" required>
+        <option value="0"></option>
+        #foreach($venue in $allVenues)
+          <option value="$venue.getId()">$venue.getName()</option>
+        #end
+        <button type="submit" id="$venue.getId()" name="$venue.getId()" class="btn btn-warning remove">Add Venue</button>
+      </form>
+    </h4>
+  </div>
+  <div class="col col-sm-4">
+    <h3>Venues $band.getName() has played:</h3>
+    #foreach($venue in $venues)
+    <h4><a href="/$venue.getId()">$venue.getName()</a>
+    <a href="/$venue.getId()/delete" id = "delete$venue.getId()" class="btn btn-danger delete btn-xs">Delete $venue.getName()</a></h4>
+    #end
+  </div>
+</div>

@@ -44,6 +44,7 @@ public class App {
       int bandId = Integer.parseInt(request.params("id"));
       Band band = Band.find(bandId);
       model.put("band", band);
+      model.put("allVenues", Venue.all());
       model.put("venues", band.getVenues());
       model.put("template", "templates/band.vtl");
       return new ModelAndView(model, layout);
