@@ -20,14 +20,14 @@ public class VenueTest {
     assertTrue(firstVenue.equals(secondVenue));
   }
 
-  // @Test
-  // public void save_savesObjectIntoDatabase() {
-  //   Venue myVenue = new Venue("Mow the lawn");
-  //   myVenue.save();
-  //   Venue savedVenue = Venue.all().get(0);
-  //   assertTrue(savedVenue.equals(myVenue));
-  // }
-  //
+  @Test
+  public void save_savesVenueObjectIntoDatabase() {
+    Venue myVenue = new Venue("Rose Garden");
+    myVenue.save();
+    Venue savedVenue = Venue.all().get(0);
+    assertTrue(savedVenue.equals(myVenue));
+  }
+
   // @Test
   // public void save_assignsIdToObject() {
   //   Venue myVenue = new Venue("Mow the lawn");
