@@ -13,13 +13,13 @@ public class BandTest {
     assertEquals(Band.all().size(), 0);
   }
 
-  // @Test
-  // public void equals_returnsTrueIfNamesAretheSame() {
-  //   Category firstCategory = new Category("Household chores");
-  //   Category secondCategory = new Category("Household chores");
-  //   assertTrue(firstCategory.equals(secondCategory));
-  // }
-  //
+  @Test
+  public void equals_returnsTrueIfNamesAretheSame() {
+    Band firstBand = new Band("House");
+    Band secondBand = new Band("House");
+    assertTrue(firstBand.equals(secondBand));
+  }
+
   // @Test
   // public void save_savesIntoDatabase_true() {
   //   Category myCategory = new Category("Household chores");
