@@ -1,19 +1,19 @@
-# Library
+# Bands and Venues
 
-#### Web app for a library to track books and library partons using Java and Postgres | March 3, 2016
+#### Web app for a Bands and Venues to be tracked in a database using Java and Postgres | March 3, 2016
 
-#### By Anna Becker & Daren Schaad
+#### By Daren Schaad
 
 ## Description
-An app for a library.
+An app for a Band/Venue database.
 
 ## Setup/Installation Requirements
 
 Clone this repository.
 ```
 $ cd ~/Desktop
-$ git clone https://github.com/annarbecker/library-java.git
-$ cd hair-salon-java
+$ git clone https://github.com/darenschaad/java_bands_venues_codeReview.git
+$ cd bands-venues
 ```
 
 Open terminal and run Postgres:
@@ -28,20 +28,20 @@ $ psql
 
 In psql run:
 ```
-# CREATE DATABASE library;
+# CREATE DATABASE band_venues;
 ```
 
 In terminal run:
 ```
-$ psql library < library.sql
+$ psql band_venues < band_venues.sql
 ```
 
 Switch to psql and run:
 ```
-# \c library
+# \c band_venues
 # \dt
 ```
-This will list all of the tables in the `library` database
+This will list all of the tables in the `band_venues` database
 
 Navigate back to the directory where this repository has been cloned and run gradle:
 ```
@@ -69,7 +69,7 @@ Java, Spark, Junit, Velocity, Fluentlenium, Bootstrap, Postgres
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2016 Anna Becker & Daren Schaad
+Copyright (c) 2016 Daren Schaad
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
