@@ -1,0 +1,30 @@
+
+<h2>$venue.getName()</h2>
+
+
+<div class="row">
+  <div class="col-sm-8">
+      <form class="form-inline" action="/venue/$venue.getId()" method="post">
+        <label for="band">Add a band for $venue.getName()</label>
+        <select name="bandId" class="form-control">
+          <option value="0"></option>
+          #foreach($band in $allBands)
+            <option value="$band.getId()">$band.getName()</option>
+          #end
+        </select>
+        <button type="submit" name="addBand" class="btn btn-info add">Add Band</button>
+      </form>
+      <hr>
+      <form class="form-inline" action="/venue-update/$venue.getId()" method="post">
+        <label for="venueName">Update the name of $venue.getName()</label>
+        <input type="text" name="newName" class="form-control">
+        <button type="submit" name="updateVenue" class="btn btn-info add">Update Name</button>
+      </form>
+  </div>
+  <div class="col-sm-4">
+    <h3>Bands that have played at $venue.getName():</h3>
+    #foreach($band in $bands)
+    <h4><a href="/$band.getId()">$band.getName()</a></h4>
+    #end
+  </div>
+</div>

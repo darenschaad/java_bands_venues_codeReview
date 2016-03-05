@@ -65,6 +65,7 @@ public class BandTest {
     myBand.addVenue(myVenue);
     myBand.deleteBand();
     assertEquals(myBand.getVenues().size(), 0);
+    assertFalse(Band.all().contains(myBand));
   }
 
   // @Test

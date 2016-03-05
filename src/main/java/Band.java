@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 import org.sql2o.*;
+import java.lang.*;
 
 public class Band {
   private int id;
@@ -86,19 +87,20 @@ public class Band {
 
   public List<Venue> getVenues() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT venues.* FROM bands JOIN bands_venues ON bands.id = bands_venues.band_id JOIN venues on bands_venues.venue_id = venues.id WHERE bands.id = :id ORDER BY venues.venue_name";
+      String sql = "SELECT DISTINCT ON (venues.venue_name) venues.* FROM bands JOIN bands_venues ON bands.id = bands_venues.band_id JOIN venues on bands_venues.venue_id = venues.id WHERE bands.id = :id ORDER BY venues.venue_name";
       return con.createQuery(sql)
         .addParameter("id", this.getId())
         .executeAndFetch(Venue.class);
     }
   }
 
-  // public void removeVenue(int taskId) {
-  //   try(Connection con = DB.sql2o.open()){
-  //     String sql ="DELETE FROM bands_venues WHERE band_id =  :bandId AND venue_id = :venueId";      con.createQuery(sql)
-  //       .addParameter("bandId", this.getId())
-  //       .addParameter("venueId", venueId)
-  //       .executeUpdate();
-  //   }
-  // }
+  public void update(String newName) {
+    try(Connection con = DB.sql2o.open()){
+      String sql ="UPDATE bands SET band_name = :newName WHERE id =  :id";
+      con.createQuery(sql)
+        .addParameter("id", this.getId())
+        .addParameter("newName", newName)
+        .executeUpdate();
+    }
+  }
 }

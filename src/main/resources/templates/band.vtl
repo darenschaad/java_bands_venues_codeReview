@@ -1,27 +1,30 @@
-band.vtl
 
 <h2>$band.getName()</h2>
 
 
 <div class="row">
-  <div class="col col-sm-8">
-    <h4>
+  <div class="col-sm-8">
       <form class="form-inline" action="/band/$band.getId()" method="post">
-        <label for="">Add a venue for $band.getName()</label>
-        <select id="venueId" name="venueId" required>
-        <option value="0"></option>
-        #foreach($venue in $allVenues)
-          <option value="$venue.getId()">$venue.getName()</option>
-        #end
-        <button type="submit" id="$venue.getId()" name="$venue.getId()" class="btn btn-warning remove">Add Venue</button>
+        <label for="venue">Add a venue for $band.getName()</label>
+        <select name="venueId" class="form-control">
+          <option value="0"></option>
+          #foreach($venue in $allVenues)
+            <option value="$venue.getId()">$venue.getName()</option>
+          #end
+        </select>
+        <button type="submit" name="addVenue" class="btn btn-info add">Add Venue</button>
       </form>
-    </h4>
+      <hr>
+      <form class="form-inline" action="/band-update/$band.getId()" method="post">
+        <label for="bandName">Update the name of $band.getName()</label>
+        <input type="text" name="newName" class="form-control">
+        <button type="submit" name="updateBand" class="btn btn-info add">Update Name</button>
+      </form>
   </div>
-  <div class="col col-sm-4">
+  <div class="col-sm-4">
     <h3>Venues $band.getName() has played:</h3>
     #foreach($venue in $venues)
-    <h4><a href="/$venue.getId()">$venue.getName()</a>
-    <a href="/$venue.getId()/delete" id = "delete$venue.getId()" class="btn btn-danger delete btn-xs">Delete $venue.getName()</a></h4>
+    <h4><a href="/venue/$venue.getId()">$venue.getName()</a></h4>
     #end
   </div>
 </div>

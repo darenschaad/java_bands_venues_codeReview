@@ -1,20 +1,18 @@
-bands.vtl
-
 
 <div class="row">
-  <div class="col col-sm-6">
+  <div class="col col-sm-7">
     <h3>Add a Band:</h3>
-    <form action="/bands" method="post">
+    <form action="/bands" method="post" class="form-inline">
       <label>Band Name</label>
-      <input type="text" name="bandName" autofocus="autofocus">
+      <input type="text" name="bandName" autofocus="autofocus" class="form-control" required>
       <button type="submit" id="addBand" name="addBand" class="btn btn-info add">Add Band</button>
     </form>
   </div>
-  <div class="col col-sm-6">
+  <div class="col col-sm-5">
     <h3>Existing Bands:</h3>
     #foreach($band in $bands)
-    <h4><a href="band/$band.getId()">$band.getName()</a>
-    <a href="band/$band.getId()/delete" id = "delete$band.getId()" class="btn btn-danger delete btn-xs">Delete $band.getName()</a></h4>
+    <h4><a href="/band/$band.getId()">$band.getName()</a>
+    <a href="/band/$band.getId()/delete" id = "delete$band.getId()" class="btn btn-danger delete btn-xs">Delete $band.getName()</a></h4>
     #end
   </div>
 

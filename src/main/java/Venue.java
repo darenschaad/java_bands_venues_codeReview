@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.Date;
 import java.util.ArrayList;
 import org.sql2o.*;
+import java.lang.*;
 
 public class Venue {
   private int id;
@@ -99,7 +100,7 @@ public class Venue {
 
   public List<Band> getBands() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT Bands.* FROM venues JOIN bands_venues ON venues.id = bands_venues.venue_id JOIN bands on bands_venues.band_id = bands.id WHERE venues.id = :id ORDER BY bands.band_name";
+      String sql = "SELECT DISTINCT ON (bands.band_name) Bands.* FROM venues JOIN bands_venues ON venues.id = bands_venues.venue_id JOIN bands on bands_venues.band_id = bands.id WHERE venues.id = :id ORDER BY bands.band_name";
       return con.createQuery(sql)
         .addParameter("id", this.getId())
         .executeAndFetch(Band.class);
@@ -112,6 +113,16 @@ public class Venue {
       con.createQuery(sql)
         .addParameter("bandId", bandId)
         .addParameter("venueId", this.getId())
+        .executeUpdate();
+    }
+  }
+
+  public void update(String newName) {
+    try(Connection con = DB.sql2o.open()){
+      String sql ="UPDATE venues SET venue_name = :newName WHERE id =  :id";
+      con.createQuery(sql)
+        .addParameter("id", this.getId())
+        .addParameter("newName", newName)
         .executeUpdate();
     }
   }
